@@ -1,36 +1,37 @@
-import Vue from "vue"
-import App from "./app.vue"
+import Vue from 'vue'
+import App from './app.vue'
 
+/**
+ * css和图片的loader
+ * {
+        test:/\.css$/,
+        use:[
+            "style-loader",//以js代码出现，写入js文件
+            "css-loader"
+        ]
+    },{
+        test:/\.(gif|jpg|jpeg|png|svg)$/,
+        use:[
+            {
+                loader:"url-loader",
+                options:{
+                    limit:1024,
+                    name:'[name]-aaa.[ext]'
+                }
+            }
+        ]
+    }
+ */
+import './assets/style/test.css'
+import './assets/image/disktop.jpeg'
 
+/**
+ * 导入js文件
+ */
+import './util/test.js'
 
-// import 'muse-ui/lib/styles/base.less';
-// import 'muse-ui/lib/styles/theme.less';
-// import {BottomNav, Button, Select } from 'muse-ui';
-// Vue.use(Button);
-// Vue.use(Select);
-// Vue.use(BottomNav);
-
-import router from'./route.js'
-import axios from './http.js'
-
-import MuseUI from 'muse-ui';
-import 'muse-ui/dist/muse-ui.css';
-import './assets/styles/material-icons.css'
-Vue.use(MuseUI);
-
-Vue.prototype.$axios=axios;
-
-
-
-
-// import './assets/styles/test.css'
-// import './assets/images/01.png'
-// import './assets/styles/test.stylus.styl'
-
-const root = document.createElement("div");
-document.body.appendChild(root);
-
+const root = document.createElement('div')
+document.appendChild(root)
 new Vue({
-    render:(h)=>h(App),
-    router:router
+    render:(h)=>h(App)
 }).$mount(root)
